@@ -12,6 +12,18 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AddComponent } from './views/add/add.component';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
+const UI_Modules = [
+  MatButtonModule,
+  MatCardModule,
+  MatDatepickerModule,
+  MatNativeDateModule
+]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,13 +31,13 @@ import { AddComponent } from './views/add/add.component';
     HomeComponent,
     CalenderComponent,
     AddComponent,
-
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FontAwesomeModule,
+    UI_Modules,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
