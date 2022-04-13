@@ -1,0 +1,16 @@
+<nav class="bottom-nav" style="padding-top: 10px; padding-bottom: 20px">
+  <a class="bottom-nav__destination" [routerLink]="[ '/add' ]">
+    <i class="fa-solid fa-plus fa fa-2x"></i>
+    <span class="bottom-nav__label">Hinzufügen</span>
+  </a>
+
+  <a class="bottom-nav__destination bottom-nav__destination--active" [routerLink]="[ '/' ]">
+    <i class="fa-solid fa-house-chimney fa-2x"></i>
+    <span class="bottom-nav__label">Dashboard</span>
+  </a>
+
+  <a class="bottom-nav__destination" [routerLink]="[ '/calender' ]">
+    <i class="fa-solid fa-calendar-days fa-2x"></i>
+    <span class="bottom-nav__label">Kalender</span>
+  </a>
+</nav>
