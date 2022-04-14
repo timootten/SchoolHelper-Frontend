@@ -1,0 +1,29 @@
+<section style="margin: 20px">
+  <h2 style="font-size: 2em; font-weight: bold">Aufzeigen hinzufügen</h2>
+  <mat-form-field appearance="fill">
+    <mat-label>An welchem Tag hast du aufgezeigt?</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option value="Montag">Montag</mat-option>
+      <mat-option value="Dienstag">Dienstag</mat-option>
+      <mat-option value="Mittwoch">Mittwoch</mat-option>
+      <mat-option value="Donnerstag">Donnerstag</mat-option>
+      <mat-option value="Freitag">Freitag</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>In welchem Wach hast du aufgezeigt?</mat-label>
+    <mat-select>
+      <div *ngFor="let subject of this.days.get(selected)">
+        <mat-option [value]="subject">{{ subject }}</mat-option>
+      </div>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Wie oft hast du aufgezeigt und wurdest drangenommen?</mat-label>
+    <input matInput placeholder="0" />
+  </mat-form-field>
+
+  <button mat-button mat-raised-button color="primary">
+    Hinzufügen
+  </button>
+</section>
