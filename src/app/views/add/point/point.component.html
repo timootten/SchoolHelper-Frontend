@@ -2,17 +2,19 @@
   <h2 style="font-size: 2em; font-weight: bold">Aufzeigen hinzufügen</h2>
   <mat-form-field appearance="fill">
     <mat-label>An welchem Tag hast du aufgezeigt?</mat-label>
-    <mat-select [(value)]="selected">
+    <mat-select [(value)]="selected" disabled>
+      <mat-option value="Sonntag">Sonntag</mat-option>
       <mat-option value="Montag">Montag</mat-option>
       <mat-option value="Dienstag">Dienstag</mat-option>
       <mat-option value="Mittwoch">Mittwoch</mat-option>
       <mat-option value="Donnerstag">Donnerstag</mat-option>
       <mat-option value="Freitag">Freitag</mat-option>
+      <mat-option value="Samstag">Samstag</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>In welchem Wach hast du aufgezeigt?</mat-label>
-    <mat-select>
+    <mat-label>In welchem Fach hast du aufgezeigt?</mat-label>
+    <mat-select [(value)]="subject" >
       <div *ngFor="let subject of this.days.get(selected)">
         <mat-option [value]="subject">{{ subject }}</mat-option>
       </div>
@@ -20,10 +22,16 @@
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Wie oft hast du aufgezeigt und wurdest drangenommen?</mat-label>
-    <input matInput placeholder="0" />
+    <input type="number" (change)="updateNumber($event)" (keypress)="numberOnly($event)" matInput placeholder="0" />
   </mat-form-field>
 
-  <button mat-button mat-raised-button color="primary">
+  <button (click)="submit()" mat-button mat-raised-button color="primary">
     Hinzufügen
   </button>
+
+
+  <br>
+  {{ selected }}
+  {{ subject }}
+  {{ number }}
 </section>

@@ -1,5 +1,5 @@
 <p>calender works!</p>
 <mat-card class="demo-inline-calendar-card">
-  <mat-calendar [(selected)]="selected" [dateClass]="dateClass()"></mat-calendar>
+  <mat-calendar [(selected)]="selected" (click)="updateText()" [dateClass]="dateClass()"></mat-calendar>
 </mat-card>
-<p>Selected date: {{selected}}</p>
+<h1><pre>{{ info }}</pre></h1>
